@@ -1,3 +1,80 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --background-color: #ecf0f1;
+  --text-color: #34495e;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+#container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: var(--primary-color);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+strong {
+  color: var(--secondary-color);
+}
+
+.underline {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 30px 0;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #7f8c8d;
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.icon_heart_alt:before {
+  content: "\2665";
+  color: #e74c3c;
+}
+
 .singapore-pride {
     background-color: #f8f9fa;
     border-radius: 8px;
@@ -37,20 +114,28 @@
 }
 
 @media (max-width: 600px) {
-    .singapore-pride {
-        padding: 15px;
-    }
+  #container {
+    padding: 10px;
+  }
 
-    .singapore-pride p {
-        font-size: 1em;
-    }
+  h1 {
+    font-size: 2em;
+  }
 
-    .merlion-icon {
-        width: 40px;
-        height: 40px;
-    }
+  .singapore-pride {
+    padding: 15px;
+  }
 
-    .singapore-skyline {
-        height: 40px;
-    }
+  .singapore-pride p {
+    font-size: 1em;
+  }
+
+  .merlion-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .singapore-skyline {
+    height: 40px;
+  }
 }
