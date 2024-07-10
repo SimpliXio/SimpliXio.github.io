@@ -3,6 +3,7 @@
   --secondary-color: #2c3e50;
   --background-color: #ecf0f1;
   --text-color: #34495e;
+  --accent-color: #e74c3c;
 }
 
 html, body {
@@ -17,11 +18,16 @@ html, body {
 
 #container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 30px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+#container:hover {
+  transform: translateY(-5px);
 }
 
 header {
@@ -33,6 +39,19 @@ h1 {
   color: var(--primary-color);
   font-size: 2.5em;
   margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
 }
 
 p {
@@ -44,8 +63,31 @@ strong {
 }
 
 .underline {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--primary-color);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.underline:hover {
+  color: var(--accent-color);
+}
+
+.underline:hover::after {
+  transform: scaleX(1);
+  background-color: var(--accent-color);
 }
 
 hr {
@@ -64,58 +106,77 @@ footer {
 footer a {
   color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 footer a:hover {
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
 .icon_heart_alt:before {
   content: "\2665";
-  color: #e74c3c;
+  color: var(--accent-color);
 }
 
 .singapore-pride {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.singapore-pride:hover {
+  transform: translateY(-5px);
 }
 
 .singapore-pride p {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #c41e3a;
-    margin: 0;
-    position: relative;
-    z-index: 2;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #c41e3a;
+  margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .merlion-icon {
-    width: 50px;
-    height: 50px;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM391.8 391.8C355.5 428 307.6 448 256 448s-99.5-20-135.8-56.2C84 355.5 64 307.6 64 256s20-99.5 56.2-135.8C156.5 84 204.4 64 256 64s99.5 20 135.8 56.2C428 156.5 448 204.4 448 256S428 355.5 391.8 391.8z"/></svg>');
-    background-size: contain;
-    margin: 0 auto 10px;
+  width: 50px;
+  height: 50px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23c41e3a" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM391.8 391.8C355.5 428 307.6 448 256 448s-99.5-20-135.8-56.2C84 355.5 64 307.6 64 256s20-99.5 56.2-135.8C156.5 84 204.4 64 256 64s99.5 20 135.8 56.2C428 156.5 448 204.4 448 256S428 355.5 391.8 391.8z"/></svg>');
+  background-size: contain;
+  margin: 0 auto 10px;
+  transition: transform 0.3s ease;
+}
+
+.singapore-pride:hover .merlion-icon {
+  transform: rotate(360deg);
 }
 
 .singapore-skyline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,100 L50,90 L100,100 L150,80 L200,95 L250,75 L300,85 L350,70 L400,90 L450,60 L500,80 L550,50 L600,70 L650,40 L700,60 L750,30 L800,50 L850,20 L900,40 L950,10 L1000,30 L1000,100 Z" fill="%23c41e3a"/></svg>');
-    background-size: cover;
-    opacity: 0.2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,100 L50,90 L100,100 L150,80 L200,95 L250,75 L300,85 L350,70 L400,90 L450,60 L500,80 L550,50 L600,70 L650,40 L700,60 L750,30 L800,50 L850,20 L900,40 L950,10 L1000,30 L1000,100 Z" fill="%23c41e3a"/></svg>');
+  background-size: cover;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.singapore-pride:hover .singapore-skyline {
+  opacity: 0.3;
 }
 
 @media (max-width: 600px) {
   #container {
-    padding: 10px;
+    padding: 15px;
+    margin: 10px auto;
   }
 
   h1 {
